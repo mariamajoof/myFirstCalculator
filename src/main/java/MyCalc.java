@@ -6,6 +6,14 @@ public class MyCalc {
         // creates an object of Scanner
         Scanner input = new Scanner(System.in);
 
+        // Declearing variable
+        double smallPaintSize = 2.5;
+        double mediumPaintSize = 5;
+        double BigPaintSize = 7.5;
+       // int coatOne = input.nextInt();
+       // int coatTwo = input.nextInt();
+
+
         //WallSize
         System.out.print("What is the width of your wall: ");
         int widthSize = input.nextInt();
@@ -13,8 +21,8 @@ public class MyCalc {
         System.out.print("what is the length of your wall: ");
         int lengthSize = input.nextInt();
 
-        int WallArea = widthSize * lengthSize;
-        System.out.print("The size of your wall is:" + WallArea );
+        int wallSize = widthSize * lengthSize;
+        System.out.print("The size of your wall is:" + wallSize );
 
         //door size
         System.out.print("\n How many doors do you have:");
@@ -55,16 +63,64 @@ public class MyCalc {
         int socketArea = socketQuantity * (socketWidthSize * socketLengthSize);
         System.out.print("The size of your socket is:" + socketArea );
 
+        // Total wall area
+        int totalWallSize = (wallSize) - (doorArea + windowArea + socketArea);
+        System.out.println(totalWallSize);
+
+        //Room Area
+        System.out.print("Total wall side:");
+        int wallSide = input.nextInt();
+
+        // Cal how many wall side
+        int roomArea = wallSide * totalWallSize;
+        System.out.print("Total room area is:" + roomArea );
+
+        //Paint coat
+        System.out.println("Select paint coat: 1, 2, 3");
+        int paintCoat = input.nextInt() * roomArea;
+
         //Paint bucket
         System.out.print("\nPaint colour of your choice:");
         String paintColour = input.next();
+        //Select paint size
+        System.out.print("Select paint bucket size: Large, Medium, Small");
+        String paintBucketSize = input.next();
 
-        System.out.print("Paint bucket size:");
-        int paintSize = input.nextInt();
+       /*** Double large = BigPaintSize;
+        Double medium = mediumPaintSize;
+        Double small = smallPaintSize;***/
+        //switch statement size of paint
+        switch (paintBucketSize) {
 
-        int paintBucketCal = (WallArea) - (doorArea + windowArea + socketArea);
-        int paintBucketNeeded = paintSize / paintBucketCal;
-        System.out.print("The amount of paint bucket you need is:" + paintBucketNeeded );
+            // Selecting bucket size
+            case "Large":
+                Double large = BigPaintSize /
+                System.out.println("You need" + "bucket(s)");
+                break;
+
+            // performs subtraction between numbers
+            case "Medium":
+
+                System.out.println("You need" + "bucket(s)");
+                break;
+
+            // performs multiplication between numbers
+            case "Small":
+
+                System.out.println("You need" + "bucket(s)");
+                break;
+
+            default:
+                System.out.println("Invalid operator!");
+                break;
+        }
+
+        //int paintSizeFromUser = input.nextInt();
+
+       // int paintBucket =
+
+        //int paintBucketNeeded = paintSize / paintBucketCal;
+        //System.out.print("The amount of paint bucket you need is:" + paintBucketNeeded );
 
     }
 }
